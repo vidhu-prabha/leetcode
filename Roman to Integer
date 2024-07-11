@@ -1,0 +1,22 @@
+#13. Roman to Integer
+class Solution:
+    def romanToInt(self, s: str) -> int:
+        roman_map = { 
+            'I' : 1,
+            'V' : 5,
+            'X' : 10,
+            'L' : 50,
+            'C' : 100,
+            'D' : 500,
+            'M' : 1000
+        }
+        right = s[len(s) - 1]
+        num = 0
+        for i in s[ : : -1]:
+            left = i
+            if roman_map[left] >= roman_map[right]:
+                num += roman_map[left]
+            else:
+                num -= roman_map[left]
+            right = left
+        return num
