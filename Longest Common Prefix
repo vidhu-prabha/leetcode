@@ -1,0 +1,11 @@
+#14. Longest Common Prefix
+class Solution:
+    def longestCommonPrefix(self, strs: List[str]) -> str:
+        res = strs[0]
+        step = 0
+        for i in strs:
+            while i.find(res) != 0:
+                step -= 1
+                res = strs[0][:step]
+        return res
+            
